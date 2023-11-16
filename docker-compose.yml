@@ -1,23 +1,23 @@
 version: '3'
-services: 
-  api: 
-    build: 
+services:
+  api:
+    build:
       context: ./api
     container_name: api
-    ports: 
+    ports:
       - "3000:3000"
-  ui: 
-    build: 
+  ui:
+    build:
       context: ./ui
     container_name: ui
-    ports: 
+    ports:
       - "4200:4200"
-  nginx: 
+  nginx:
     container_name: nginx
-    depends_on: 
+    depends_on:
       - ui
       - api
-    ports: 
+    ports:
       - "80:80"
     build:
       context: ./nginx
